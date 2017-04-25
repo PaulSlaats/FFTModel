@@ -27,7 +27,7 @@ N = len(AdjClose)
 Nln = N - 1
 AdjCloseln = np.zeros(Nln)
 for i in range(0,Nln):
-    AdjCloseln[i] = math.log(AdjClose[i]/AdjClose[i+1])
+    AdjCloseln[i] = math.log(AdjClose[i+1]/AdjClose[i])
     
 print AdjCloseln
     
@@ -45,7 +45,7 @@ xf = np.linspace(0.0, 1.0/(2.0*T), Nln//2)
 youtput = 2.0/Nln * np.abs(yf[0:Nln//2])
 
 #plot stock
-plt.plot(x, AdjCloseln)
+plt.plot(x, AdjCloselnmean)
 plt.grid()
 plt.show()
 
